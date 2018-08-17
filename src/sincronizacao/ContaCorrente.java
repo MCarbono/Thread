@@ -46,4 +46,16 @@ public class ContaCorrente {
         return true;
     }
     
+    public synchronized boolean transferencia(ContaCorrente cc1, ContaCorrente cc2, float valorTransferencia){
+        
+        if(cc1.saldo > valorTransferencia) {
+            cc1.saldo -= valorTransferencia;
+            cc2.saldo += valorTransferencia;
+            System.out.println(cc1.saldo);
+            System.out.println(cc2.saldo);
+            return true;
+        }        
+        return false;
+    }
+    
 }
